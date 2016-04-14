@@ -64,11 +64,13 @@
         });
     };
     function numberRoller(slno){
-            var min=$('.roller-title-number-'+slno).attr('data-min');
-            var max=$('.roller-title-number-'+slno).attr('data-max');
+            var min=parseInt($('.roller-title-number-'+slno).attr('data-min'));
+            var max=parseInt($('.roller-title-number-'+slno).attr('data-max'));
             var timediff=$('.roller-title-number-'+slno).attr('data-delay');
             var increment=$('.roller-title-number-'+slno).attr('data-increment');
             var numdiff=max-min;
+            if(min > max)
+                numdiff=min-max;
             var timeout=(timediff*1000)/numdiff;
             //if(numinc<10){
                 //increment=Math.floor((timediff*1000)/10);
@@ -77,7 +79,7 @@
             
     }
     function numberRoll(slno,min,max,increment,timeout){//alert(slno+"="+min+"="+max+"="+increment+"="+timeout);
-        if(min<=max){
+        if(min!=max){
             $('.roller-title-number-'+slno).html(min);
             min=parseInt(min)+parseInt(increment);
             setTimeout(function(){numberRoll(eval(slno),eval(min),eval(max),eval(increment),eval(timeout))},timeout);
