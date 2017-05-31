@@ -68,21 +68,29 @@
             var max=$('.roller-title-number-'+slno).attr('data-max');
             var timediff=$('.roller-title-number-'+slno).attr('data-delay');
             var increment=$('.roller-title-number-'+slno).attr('data-increment');
+            var separator=$('.roller-title-number-'+slno).attr('data-separator');
+            separator = (separator === undefined) ? '' : separator;
             var numdiff=max-min;
             var timeout=(timediff*1000)/numdiff;
-            //if(numinc<10){
-                //increment=Math.floor((timediff*1000)/10);
-            //}//alert(increment);
-            numberRoll(slno,min,max,increment,timeout);
-            
+            numberRoll(slno,min,max,increment,timeout,separator);
     }
-    function numberRoll(slno,min,max,increment,timeout){//alert(slno+"="+min+"="+max+"="+increment+"="+timeout);
+    function numberRoll(slno,min,max,increment,timeout, separator){
         if(min<=max){
-            $('.roller-title-number-'+slno).html(min);
+            var value = addSeparator(min, separator);
+            $('.roller-title-number-'+slno).html(value);
             min=parseInt(min)+parseInt(increment);
-            setTimeout(function(){numberRoll(eval(slno),eval(min),eval(max),eval(increment),eval(timeout))},timeout);
+            setTimeout(function(){numberRoll(eval(slno),eval(min),eval(max),eval(increment),eval(timeout), separator)},timeout);
         }else{
-            $('.roller-title-number-'+slno).html(max);
+            var value = addSeparator(max, separator);
+            $('.roller-title-number-'+slno).html(value);
         }
+    }
+    function addSeparator(nStr, separator) {
+        nStr += '';
+        var rgx = /(\d+)(\d{3})/;
+        while (separator != '' && rgx.test(nStr)) {
+                nStr = nStr.replace(rgx, '$1' + separator + '$2');
+        }
+        return nStr;
     }
 })(jQuery);
