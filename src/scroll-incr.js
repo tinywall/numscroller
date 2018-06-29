@@ -147,9 +147,11 @@
   function realIncrementor(el, min, max, increment, timeout) {
     el.html(min)
 
-    while (min <= max) {
+    while (min <= 10) {
       setTimeout(function () {
-        min++
+        min = min + increment
+
+        el.html(min)
       }, timeout)
     }
 
