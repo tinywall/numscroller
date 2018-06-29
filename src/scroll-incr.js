@@ -2,7 +2,7 @@
  * Scroll-Incr
  *
  * https://e200.github.io/
- * 
+ *
  * Developers: Eleandro Duzentos, Arun David, Boobalan
  * Copyright (c) 2018
  */
@@ -36,26 +36,26 @@
          * `incrementor` needs it.
          */
         var incrElementId = $(this).attr('data-incr-id')
-    
+
         incrementor(incrElementId)
       }
     })
   }
 
   w.on('load scroll resize', scrollIncrHandler)
-  
+
   $.fn.initIncrEl = function () {
     var incrElements = $(this)
 
     incrElementsLeft = incrElements.length
-    
+
     incrElements.each(function (index, incrEl) {
       var incrEl = $(incrEl)
 
       /**
        * Adding an identifier for
        * the current element.
-       * 
+       *
        * Will use it later to identy
        * it, and start the incrementation
        * process.
@@ -66,20 +66,20 @@
        * Here we're getting each
        * data needed to perform the
        * incrementation.
-       * 
+       *
        * SOme of them are provided
        * using data-attributes.
-       * 
+       *
        * They have default values,
        * except the `data-max` attribute
        * that must be present on the `incrEl`.
        */
       var min       = Number(incrEl.attr('data-min')) || 0,
           max       = Number(incrEl.attr('data-max')),
-          timediff  = Number(incrEl.attr('data-dincrElay')) || 4,
+          timediff  = Number(incrEl.attr('data-delay')) || 4,
           increment = Number(incrEl.attr('data-increment')) || 1,
           numdiff   = max - min
-    
+
       var incrData = {
         el:        incrEl,
         min:       min,
@@ -89,7 +89,7 @@
         numdiff:   numdiff,
         timeout:   (timediff * 1000) / numdiff
       }
-  
+
       // Lets put the data on the bag.
       incrBag.push(incrData)
     })
@@ -123,46 +123,36 @@
         if (!isTouched(i) && isVisible(incrElement)) {
           incrElementsLeft--
           incrBag[i].touched = true
-          
+
           options.showFunction.call(this)
         }
       })
-    } else {
-      /**
-       * All `.scroll-incr` elements were
-       * processed.
-       * 
-       * Lets unbind our listeners.
-       */
-      w.off('load scroll resize', scrollIncrHandler)
     }
 
     return this
   }
-  
+
   function incrementor(incrId) {
     var currentIncrBag = incrBag[incrId],
-  
+
     el        = currentIncrBag.el,
     min       = currentIncrBag.min,
     max       = currentIncrBag.max,
     increment = currentIncrBag.increment,
     timeout   = currentIncrBag.timeout
-  
+
     realIncrementor(el, min, max, increment, timeout)
   }
-  
+
   function realIncrementor(el, min, max, increment, timeout) {
-    if (min <= max) {
-      el.html(min)
-    
-      min = min + increment
-    
+    el.html(min)
+
+    while (min <= max) {
       setTimeout(function () {
-        realIncrementor(el, min, max, increment, timeout)
+        min++
       }, timeout)
-    } else {
-      el.html(max)
     }
+
+    el.html(max)
   }
 })(jQuery)

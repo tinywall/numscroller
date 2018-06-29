@@ -36,39 +36,90 @@
         <header class="header">
           <h2 class="header__title">Intro</h2>
 
-          <p class="header__subtitle">Scroll-Incr is a jQuery plugin for increment numbers on elements when they become visible on the view port</p>
+          <p class="header__subtitle">Scroll-Incr is a jQuery plugin for increment numbers on elements when they become visible on the view port.</p>
         </header>
       </div>
     </div>
   </section>
 
-  <section class="installation">
-    <div class="container">
-      <div class="box">
-        <header class="header">
-          <h2 class="header__title">Installation</h2>
-
-          <p class="header__subtitle">Scroll-Incr is a jQuery plugin for increment numbers on elements when they become visible on the view port</p>
-        </header>
-      </div>
-    </div>
-  </section>
-
-  <section class="how-to-use">
+  <section class="usage">
     <div class="container">
       <div class="box">
         <header class="header">
           <h2 class="header__title">Usage</h2>
 
-          <p class="header__subtitle">Scroll-Incr is a jQuery plugin for increment numbers on elements when they become visible on the view port</p>
+          <p class="header__subtitle">
+            <a href="https://raw.githubusercontent.com/e200/scroll-incr/gh-pages/dist/scroll-incr.min.js">Download</a> or install via npm.
+          </p>
 
-          <pre><code class="language-css">p { color: red }</code></pre>
+          <pre><code class="language-bash">npm i scroll-incr --save</code></pre>
+
+          <p>Now, in the HTML:</p>
+
+          <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  ...
+  &lt;script src="/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="/scroll-incr.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="scroll-incr" data-max="10"&gt;&lt;/div&gt;
+  &lt;div class="scroll-incr" data-max="1000" data-increment="10"&gt;&lt;/div&gt;
+  &lt;div class="scroll-incr" data-max="599" data-delay="8"&gt;&lt;/div&gt;
+  &lt;div class="scroll-incr" data-min="100" data-max="10000"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+          <p>Make sure to include the <a href="https://jquery.com">jQuery</a> library before include <a href="https://github.com/e200/scroll-incr">Scroll-Incr</a> plugin.</p>
         </header>
       </div>
     </div>
   </section>
 
-  <a class="fork-link" href="https://github.com/tinywall/scroll-incr">
+  <section class="examples">
+    <div class="container">
+      <header class="header">
+        <h2 class="header__title">Examples</h2>
+      </header>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <p>Aliquip sint labore est tempor et.</p>
+
+            <div class="scroll-incr" data-min="1" data-max="320">0</div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="box">
+            <p>Irure consectetur Lorem pariatur sunt dolore non exercitation aute commodo.</p>
+
+            <div class="scroll-incr" data-max="947" data-delay="8">0</div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="box">
+            <p>Eiusmod commodo magna nulla ea.</p>
+
+            <div class="scroll-incr" data-max="6028">0</div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="box">
+            <p>Cillum magna Lorem nostrud officia consequat ex occaecat officia sint ullamco labore ut voluptate.</p>
+
+            <div class="scroll-incr" data-max="10">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="fork-link" href="https://github.com/e200/scroll-incr">
     <img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
   </a>
 

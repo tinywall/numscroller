@@ -33,5 +33,8 @@
     "gulp-rename": "^1.3.0",
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "gulp-purifycss": "^0.2.0"
   }
 }
