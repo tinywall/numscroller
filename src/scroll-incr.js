@@ -145,16 +145,16 @@
   }
 
   function realIncrementor(el, min, max, increment, timeout) {
-    el.html(min)
+    if (min <= max) {
+      el.html(min)
 
-    /*while (min <= 10) {
       setTimeout(function () {
         min = min + increment
 
-        el.html(min)
+        realIncrement(el, min, max, increment, timeout)
       }, timeout)
+    } else {
+      el.html(max)
     }
-
-    el.html(max)*/
   }
 })(jQuery)
