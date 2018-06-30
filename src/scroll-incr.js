@@ -9,120 +9,92 @@
 (function ($) {
   /**
    * Represents each incrementable
-   * element and its respective data.
+   * el and its respective data.
    */
-  var incrBag          = [],
-      w                = $(window),
-      incrElementsLeft = 0
+  var elsPos  = [],
+      w       = $(window),
+      elsLeft = 0
 
   /**
    * Once the page is loaded,
    * we initialize the plugin.
    */
   w.on('load', function() {
-    $('.scroll-incr').initIncrEl()
+    $('.scroll-incr').initScrollIncr()
   })
 
   function scrollIncrHandler () {
     $('.scroll-incr').visibleOnViewport({
       /**
        * This function will be trigged when
-       * the element become visible on the viewport.
+       * the el become visible on the viewport.
        */
       showFunction: function () {
         /**
          * Lets take the id of the current
-         * element, because `number`, because
+         * el, because `number`, because
          * `incrementor` needs it.
          */
-        var incrElementId = $(this).attr('data-incr-id')
+        var elId = $(this).attr('data-incr-id')
 
-        incrementor(incrElementId)
+        incrementor(elId)
       }
     })
   }
 
   w.on('load scroll resize', scrollIncrHandler)
 
-  $.fn.initIncrEl = function () {
-    var incrElements = $(this)
+  $.fn.initScrollIncr = function () {
+    var els = $(this)
 
-    incrElementsLeft = incrElements.length
+    elsLeft = els.length
 
-    incrElements.each(function (index, incrEl) {
-      var incrEl = $(incrEl)
+    els.each(function (index, el) {
+      var el = $(el)
 
       /**
        * Adding an identifier for
-       * the current element.
+       * the current el.
        *
        * Will use it later to identy
        * it, and start the incrementation
        * process.
        */
-      incrEl.attr('data-incr-id', index)
+      el.attr('data-incr-id', index)
 
-      /**
-       * Here we're getting each
-       * data needed to perform the
-       * incrementation.
-       *
-       * SOme of them are provided
-       * using data-attributes.
-       *
-       * They have default values,
-       * except the `data-max` attribute
-       * that must be present on the `incrEl`.
-       */
-      var min       = Number(incrEl.attr('data-min')) || 0,
-          max       = Number(incrEl.attr('data-max')),
-          timediff  = Number(incrEl.attr('data-delay')) || 4,
-          increment = Number(incrEl.attr('data-increment')) || 1,
-          numdiff   = max - min
-
-      var incrData = {
-        el:        incrEl,
-        min:       min,
-        max:       max,
-        timediff:  timediff,
-        increment: increment,
-        numdiff:   numdiff,
-        timeout:   (timediff * 1000) / numdiff
-      }
-
-      // Lets put the data on the bag.
-      incrBag.push(incrData)
+      elsPos.push({ touched: false })
     })
   }
 
 
   /**
-   * Checks if the `incrElement`
+   * Checks if the `el`
    * is visible on the viewport
    */
-  function isVisible(incrElement) {
-    return w.scrollTop() > ($(incrElement).offset().top - window.innerHeight)
+  function isVisible(el) {
+    return w.scrollTop() > ($(el).offset().top - window.innerHeight)
   }
 
   /**
-   * Checks if the `incrElement`
+   * Checks if the `el`
    * was touched (incremented)
    */
   function isTouched(i) {
-    return incrBag[i].touched
+    return elsPos[i].touched
   }
 
   $.fn.visibleOnViewport = function (options) {
-    if (incrElementsLeft > 0) {
-      this.each(function (i, incrElement) {
+    if (elsLeft > 0) {
+      this.each(function (i, el) {
         /**
-         * If the element wasn't touched
+         * If the el wasn't touched
          * and is visible, lets mark it as
          * touched and call `showFunction`.
          */
-        if (!isTouched(i) && isVisible(incrElement)) {
-          incrElementsLeft--
-          incrBag[i].touched = true
+        if (!isTouched(i) && isVisible(el)) {
+          elsLeft--
+
+          elsPos[i].touched = true
 
           options.showFunction.call(this)
         }
@@ -132,26 +104,41 @@
     return this
   }
 
-  function incrementor(incrId) {
-    var currentIncrBag = incrBag[incrId],
+  function incrementor(elId) {
+    var el = $('[data-incr-id=' + elId + ']')
 
-    el        = currentIncrBag.el,
-    min       = currentIncrBag.min,
-    max       = currentIncrBag.max,
-    increment = currentIncrBag.increment,
-    timeout   = currentIncrBag.timeout
+    /**
+     * Here we're getting each
+     * data needed to perform the
+     * incrementation.
+     *
+     * SOme of them are provided
+     * using data-attributes.
+     *
+     * They have default values,
+     * except the `data-max` attribute
+     * that must be present on the `el`.
+     */
+    var min     = Number(el.attr('data-min')) || 0,
+        max     = Number(el.attr('data-max')),
+        delay   = Number(el.attr('data-delay')) || 4,
+        steps   = Number(el.attr('data-steps')) || 1,
+        numdiff = max - min
+        timeout = (delay * 1000) / (numdiff / steps)
 
-    realIncrementor(el, min, max, increment, timeout)
+    realIncrementor(el, min, max, steps, timeout)
   }
 
-  function realIncrementor(el, min, max, increment, timeout) {
+  var timeout_ = 0
+
+  function realIncrementor(el, min, max, steps, timeout) {
     if (min <= max) {
       el.html(min)
 
       setTimeout(function () {
-        min = min + increment
+        min = min + steps
 
-        realIncrement(el, min, max, increment, timeout)
+        realIncrementor(el, min, max, steps, timeout)
       }, timeout)
     } else {
       el.html(max)
