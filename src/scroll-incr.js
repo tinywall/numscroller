@@ -24,12 +24,12 @@
   })
 
   function scrollIncrHandler () {
-    $('.scroll-incr').visibleOnViewport({
+    $('.scroll-incr').onViewPort({
       /**
        * This function will be trigged when
        * the el become visible on the viewport.
        */
-      showFunction: function () {
+      showFunc: function () {
         /**
          * Lets take the id of the current
          * el, because `number`, because
@@ -66,7 +66,6 @@
     })
   }
 
-
   /**
    * Checks if the `el`
    * is visible on the viewport
@@ -83,20 +82,24 @@
     return elsPos[i].touched
   }
 
-  $.fn.visibleOnViewport = function (options) {
+  function getAttrAsNumberOrDefault(el, attr, defaultValue) {
+    return Number(el.attr(attr)) || defaultValue
+  }
+
+  $.fn.onViewPort = function (options) {
     if (elsLeft > 0) {
       this.each(function (i, el) {
         /**
          * If the el wasn't touched
          * and is visible, lets mark it as
-         * touched and call `showFunction`.
+         * touched and call `showFunc`.
          */
         if (!isTouched(i) && isVisible(el)) {
           elsLeft--
 
           elsPos[i].touched = true
 
-          options.showFunction.call(this)
+          options.showFunc.call(el)
         }
       })
     }
@@ -112,25 +115,26 @@
      * data needed to perform the
      * incrementation.
      *
-     * SOme of them are provided
+     * Some of them are provided
      * using data-attributes.
      *
      * They have default values,
      * except the `data-max` attribute
      * that must be present on the `el`.
      */
-    var min     = Number(el.attr('data-min')) || 0,
-        max     = Number(el.attr('data-max')),
-        delay   = (Number(el.attr('data-delay')) || 4) * 1000,
-        numdiff = max - min
-        steps   = Number(el.attr('data-steps')) || (max / delay),
-        timeout = delay / (numdiff / steps)
+    var min        = getAttrAsNumberOrDefault(el, 'data-min', 0),
+        max        = getAttrAsNumberOrDefault(el, 'data-max', 4),
+        duration   = getAttrAsNumberOrDefault(el, 'data-duration', 4),
+        numdiff    = max - min,
+        steps      = getAttrAsNumberOrDefault(el, 'data-steps', (numdiff / duration)),
+        durationMs = duration * 1000,
+        timeout    = durationMs / 5
 
     realIncrementor(el, min, max, steps, timeout)
   }
 
   function realIncrementor(el, min, max, steps, timeout) {
-    console.log(steps)
+    console.log(min, steps, timeout)
 
     if (min <= max) {
       el.html(min)
