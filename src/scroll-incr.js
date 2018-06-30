@@ -147,7 +147,7 @@
   function realIncrementor(el, min, max, increment, timeout) {
     el.html(min)
 
-    while (min <= 10) {
+    /*while (min <= 10) {
       setTimeout(function () {
         min = min + increment
 
@@ -155,6 +155,6 @@
       }, timeout)
     }
 
-    el.html(max)
+    el.html(max)*/
   }
 })(jQuery)
