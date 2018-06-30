@@ -121,20 +121,22 @@
      */
     var min     = Number(el.attr('data-min')) || 0,
         max     = Number(el.attr('data-max')),
-        delay   = Number(el.attr('data-delay')) || 4,
-        steps   = Number(el.attr('data-steps')) || 1,
+        delay   = (Number(el.attr('data-delay')) || 4) * 1000,
         numdiff = max - min
-        timeout = (delay * 1000) / (numdiff / steps)
+        steps   = Number(el.attr('data-steps')) || (max / delay),
+        timeout = delay / (numdiff / steps)
 
     realIncrementor(el, min, max, steps, timeout)
   }
 
   function realIncrementor(el, min, max, steps, timeout) {
+    console.log(steps)
+
     if (min <= max) {
       el.html(min)
 
       setTimeout(function () {
-        min = min + steps
+        min += parseInt(steps)
 
         realIncrementor(el, min, max, steps, timeout)
       }, timeout)
