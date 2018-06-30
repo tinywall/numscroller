@@ -77,42 +77,66 @@
     </div>
   </section>
 
-  <section class="examples">
+  <section class="example">
     <div class="container">
       <header class="header">
-        <h2 class="header__title">Examples</h2>
+        <h2 class="header__title">Example</h2>
       </header>
+    </div>
 
+    <div class="container">
+      <pre><code class="language-markup">&lt;div class="box"&gt;
+  &lt;p&gt;Deserunt ipsum veniam quis.&lt;/p&gt;
+  &lt;div class="scroll-incr" data-min="10" data-max="100" data-delay="5" data-steps="10"&gt;0&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="box"&gt;
+  &lt;p&gt;Aliquip sint labore est tempor et.&lt;/p&gt;
+  &lt;div class="scroll-incr" data-max="604" data-steps="2"&gt;0&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="box"&gt;
+  &lt;p&gt;Consequat voluptate incididunt.&lt;/p&gt;
+  &lt;div class="scroll-incr" data-max="1000" data-delay="2"&gt;0&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="box"&gt;
+  &lt;p&gt;Eiusmod commodo magna nulla ea.&lt;/p&gt;
+  &lt;div class="scroll-incr" data-max="6028" data-steps="100"&gt;0&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="box__wrapper">
+          <div class="box">
+            <p>Deserunt ipsum veniam quis.</p>
+
+            <div class="scroll-incr" data-min="10" data-max="100" data-delay="5" data-steps="10">0</div>
+          </div>
+        </div>
+
+        <div class="box__wrapper">
           <div class="box">
             <p>Aliquip sint labore est tempor et.</p>
 
-            <div class="scroll-incr" data-min="1" data-max="320">0</div>
+            <div class="scroll-incr" data-max="604" data-steps="2">0</div>
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="box__wrapper">
           <div class="box">
-            <p>Irure consectetur Lorem pariatur sunt dolore non exercitation aute commodo.</p>
+            <p>Consequat voluptate incididunt.</p>
 
-            <div class="scroll-incr" data-max="947" data-delay="8">0</div>
+            <div class="scroll-incr" data-max="1000" data-delay="2">0</div>
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="box__wrapper">
           <div class="box">
             <p>Eiusmod commodo magna nulla ea.</p>
 
-            <div class="scroll-incr" data-max="6028">0</div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="box">
-            <p>Cillum magna Lorem nostrud officia consequat ex occaecat officia sint ullamco labore ut voluptate.</p>
-
-            <div class="scroll-incr" data-max="10">0</div>
+            <div class="scroll-incr" data-max="6028" data-steps="100">0</div>
           </div>
         </div>
       </div>
