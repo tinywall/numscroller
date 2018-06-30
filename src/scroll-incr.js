@@ -129,8 +129,6 @@
     realIncrementor(el, min, max, steps, timeout)
   }
 
-  var timeout_ = 0
-
   function realIncrementor(el, min, max, steps, timeout) {
     if (min <= max) {
       el.html(min)
