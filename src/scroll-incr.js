@@ -149,24 +149,25 @@
      *
      * Some of them are provided
      * using data-attributes.
-     *
-     * They have default values,
-     * except the `data-max` attribute
-     * that must be present on the `el`.
      */
     var min        = getAttrAsNumberOrDefault(el, 'data-min', 0),
         max        = getAttrAsNumberOrDefault(el, 'data-max', 4),
-        duration   = getAttrAsNumberOrDefault(el, 'data-duration', 4),
+        duration   = getAttrAsNumberOrDefault(el, 'data-duration', 2),
         numdiff    = (max - min),
         durationMs = (duration * 1000),
         incr       = getAttrAsNumberOrDefault(el, 'data-incr', (numdiff / (duration * 100)))
 
+    /**
+     * TODO:
+     *
+     * Comment this code
+     */
     function realIncrementor() {
       if (min <= max) {
         el.html(parseInt(min))
 
         setTimeout(function () {
-          min += incr
+          min += incr + ((max > 100) ? 1 : 0)
 
           requestAnimationFrame(realIncrementor)
         }, 10)
