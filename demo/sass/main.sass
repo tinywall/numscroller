@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans')
 @import '../css/grid'
 
+$chocolate: #d2691e
+
 html,
 body
   height: 100%
@@ -29,7 +31,7 @@ body
 
     &__title
       margin: 0
-      color: #d2691e
+      color: $chocolate
       margin-bottom: 1.5rem
 
     &__subtitle
@@ -76,3 +78,16 @@ body
 
   p
     margin: 0
+
+.footer
+  text-align: center
+  padding: 35px
+  font-size: 14px
+  color: #747474
+
+  &__link
+    color: $chocolate
+    text-decoration: none
+
+  @media (min-width: 768px)
+    text-align: right

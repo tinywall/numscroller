@@ -152,3 +152,15 @@ body {
 
 .example p {
   margin: 0; }
+
+.footer {
+  text-align: center;
+  padding: 35px;
+  font-size: 14px;
+  color: #747474; }
+  .footer__link {
+    color: #d2691e;
+    text-decoration: none; }
+  @media (min-width: 768px) {
+    .footer {
+      text-align: right; } }

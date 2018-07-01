@@ -124,7 +124,7 @@
           <div class="box">
             <p>Tim Berners-Lee at CERN releases first website in</p>
 
-            <div class="scroll-incr" data-max="1991">0</div>
+            <div class="scroll-incr" data-max="1991">1991</div>
           </div>
         </div>
 
@@ -132,30 +132,47 @@
           <div class="box">
             <p>Total no. websites as of 2014</p>
 
-            <div class="scroll-incr" data-max="1000000">0</div>
+            <div class="scroll-incr" data-max="1185000000">1185000000</div>
           </div>
         </div>
 
         <div class="box__wrapper">
           <div class="box">
-            <p>No of internet users world wide as of 2014</p>
+            <p>Nº of internet users world wide as of 2014</p>
 
-            <div class="scroll-incr" data-max="2923000000">0</div>
+            <div class="scroll-incr" data-max="2923000000">2923000000</div>
+          </div>
+        </div>
+
+        <div class="box__wrapper">
+          <div class="box">
+            <p>Nº blood vessels in human body</p>
+
+            <div class="scroll-incr" data-max="62000" data-duration="3">62000</div>
+          </div>
+        </div>
+
+        <div class="box__wrapper">
+          <div class="box">
+            <p>Nº of heart beats for one day</p>
+
+            <div class="scroll-incr" data-max="10000" data-delay="5">10000</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
+  <footer class="footer">
     <div class="container">
-
+      Copyright <span class="copyright-year">2018</span> &copy; <a class="footer__link" href="https://e200.github.io">Eleandro Duzentos</a>
     </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="../demo/vendor/prism/prism.js"></script>
   <script src="../src/scroll-incr.js"></script>
+  <script>$(function() { $('.copyright-year').html(new Date().getFullYear()) })</script>
 </body>
 
 </html>
