@@ -1,6 +1,6 @@
 {
   "name": "scroll-incr",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "jQuery plugin that increments numbers on elements when they become visible",
   "main": "dist/scroll-incr.min.js",
   "scripts": {
