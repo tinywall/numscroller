@@ -166,7 +166,7 @@
         el.html(parseInt(min))
 
         setTimeout(function () {
-          min += incr + ((max > 10) ? 1 : 0)
+          min += incr
 
           requestAnimationFrame(realIncrementor)
         }, 10)
