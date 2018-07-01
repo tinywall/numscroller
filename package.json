@@ -4,6 +4,7 @@
   "description": "jQuery plugin that increments numbers on elements when they become visible",
   "main": "dist/scroll-incr.min.js",
   "scripts": {
+    "start": "ws",
     "build": "gulp build"
   },
   "repository": {
@@ -33,7 +34,8 @@
     "gulp-purgecss": "^1.0.0",
     "gulp-rename": "^1.3.0",
     "gulp-sass": "^4.0.1",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.0",
+    "local-web-server": "^2.5.4"
   },
   "dependencies": {}
 }
