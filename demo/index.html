@@ -55,28 +55,28 @@
           <p class="header__subtitle">
             <a href="https://raw.githubusercontent.com/e200/scroll-incr/gh-pages/dist/scroll-incr.min.js">Download</a> or install via npm.
           </p>
+        </header>
 
-          <pre><code class="language-bash">npm i scroll-incr --save</code></pre>
+        <pre><code class="language-bash">npm i scroll-incr --save</code></pre>
 
-          <p>Now, in the HTML:</p>
+        <p>Now, in the HTML:</p>
 
-          <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+        <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  ...
-  &lt;script src="/jquery.min.js"&gt;&lt;/script&gt;
-  &lt;script src="/scroll-incr.min.js"&gt;&lt;/script&gt;
+...
+&lt;script src="/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/scroll-incr.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;div class="scroll-incr" data-max="10"&gt;&lt;/div&gt;
-  &lt;div class="scroll-incr" data-max="1000" data-increment="10"&gt;&lt;/div&gt;
-  &lt;div class="scroll-incr" data-max="599" data-duration="8"&gt;&lt;/div&gt;
-  &lt;div class="scroll-incr" data-min="100" data-max="10000"&gt;&lt;/div&gt;
+&lt;div class="scroll-incr" data-max="10"&gt;&lt;/div&gt;
+&lt;div class="scroll-incr" data-max="1000" data-increment="10"&gt;&lt;/div&gt;
+&lt;div class="scroll-incr" data-max="599" data-duration="8"&gt;&lt;/div&gt;
+&lt;div class="scroll-incr" data-min="100" data-max="10000"&gt;&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-          <p>Make sure to include the <a href="https://jquery.com">jQuery</a> library before include <a href="https://github.com/e200/scroll-incr">Scroll-Incr</a> plugin.</p>
-        </header>
+        <p>Make sure to include the <a href="https://jquery.com">jQuery</a> library before include <a href="https://github.com/e200/scroll-incr">Scroll-Incr</a> plugin.</p>
       </div>
     </div>
   </section>
@@ -181,6 +181,40 @@
 
           <p class="header__subtitle"><b>Scroll-Incr</b> provides 4 options:</p>
         </header>
+
+        <div class="options__table__wrapper">
+          <table class="options__table">
+            <thead class="options__table__header">
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+              </tr>
+            </thead>
+            <tbody class="options__table__body">
+              <tr>
+                <td>data-min</td>
+                <td>integer</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>data-max</td>
+                <td>integer</td>
+                <td>undefined</td>
+              </tr>
+              <tr>
+                <td>data-duration</td>
+                <td>integer (seconds)</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>data-incr</td>
+                <td>integer</td>
+                <td>Evaluated from calculation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
