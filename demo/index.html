@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="jQuery plugin that increments numbers on elements when they become visible">
+  <meta name="description" content="jQuery plugin for number increment animation when an element becomes visibile on the viewport while scrolling">
   <meta name="keywords" content="jquery, increment, plugin, scroll">
   <meta name="author" content="Eleandro Duzentos">
 
@@ -21,7 +21,7 @@
   <header class="main__header">
     <div class="container">
       <h1 class="main__header__title">Scroll-Incr</h1>
-      <h2 class="main__header__subtitle">jQuery plugin for number increment when an element become visible</h2>
+      <h2 class="main__header__subtitle">jQuery plugin for number increment animation when an element becomes visibile.</h2>
 
       <div class="main__header__btn__wrapper">
         <a href="https://twitter.com/iam_e200?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @iam_e200</a>
@@ -40,7 +40,7 @@
         <header class="header">
           <h2 class="header__title">Intro</h2>
 
-          <p class="header__subtitle">Scroll-Incr is a jQuery plugin for increment numbers on elements when they become visible on the view port.</p>
+          <p class="header__subtitle">jQuery plugin for number increment animation when an element becomes visibile on the viewport while scrolling.</p>
         </header>
       </div>
     </div>
@@ -187,30 +187,25 @@
             <thead class="options__table__header">
               <tr>
                 <th>Property</th>
-                <th>Type</th>
-                <th>Default</th>
+                <th>Description</th>
               </tr>
             </thead>
             <tbody class="options__table__body">
               <tr>
                 <td>data-min</td>
-                <td>integer</td>
-                <td>0</td>
+                <td>Start number for incrementing</td>
               </tr>
               <tr>
                 <td>data-max</td>
-                <td>integer</td>
-                <td>undefined</td>
-              </tr>
-              <tr>
-                <td>data-duration</td>
-                <td>integer (seconds)</td>
-                <td>4</td>
+                <td>End number for incrementing</td>
               </tr>
               <tr>
                 <td>data-incr</td>
-                <td>integer</td>
-                <td>Evaluated from calculation</td>
+                <td>Increment by value for each rolling</td>
+              </tr>
+              <tr>
+                <td>data-duration</td>
+                <td>Total seconds to complete the number increment</td>
               </tr>
             </tbody>
           </table>

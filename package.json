@@ -1,7 +1,7 @@
 {
   "name": "scroll-incr",
-  "version": "2.0.2",
-  "description": "jQuery plugin that increments numbers on elements when they become visible",
+  "version": "2.0.3",
+  "description": "jQuery plugin for number increment animation when an element becomes visibile on the viewport while scrolling",
   "main": "src/scroll-incr.js",
   "scripts": {
     "start": "ws -s demo/index.html",
