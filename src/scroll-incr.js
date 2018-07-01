@@ -44,32 +44,6 @@
 
   w.on('load scroll resize', scrollIncrHandler)
 
-  // make sure requestAnimationFrame and cancelAnimationFrame are defined
-	// polyfill for browsers without native support
-	// by Opera engineer Erik Möller
-	var lastTime = 0;
-	var vendors = ['webkit', 'moz', 'ms', 'o'];
-	for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-		window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-		window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
-  }
-
-	if (!window.requestAnimationFrame) {
-		window.requestAnimationFrame = function(callback, element) {
-			var currTime = new Date().getTime();
-			var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-			var id = window.setTimeout(function() { callback(currTime + timeToCall); }, timeToCall);
-			lastTime = currTime + timeToCall;
-			return id;
-		};
-  }
-
-	if (!window.cancelAnimationFrame) {
-		window.cancelAnimationFrame = function(id) {
-			clearTimeout(id);
-		};
-	}
-
   $.fn.initScrollIncr = function () {
     var els = $(this)
 
@@ -155,22 +129,20 @@
         durationMs = (duration * 1000),
         incr       = getAttrAsNumberOrDefault(el, 'data-incr', (numdiff / (duration * 100)))
 
-    requestAnimationFrame(function() {
-      realIncrementor(el, min, max, incr)
-    })
-  }
+    function realIncrementor() {
+      if (min <= max) {
+        el.html(min)
 
-  function realIncrementor(el, min, max, incr) {
-    if (min <= max) {
-      el.html(min)
+        setTimeout(function () {
+          min += parseInt(incr) + ((max > 10) ? 1 : 0)
 
-      setTimeout(function () {
-        min += parseInt(incr) + ((max > 10) ? 1 : 0)
-
-        realIncrementor(el, min, max, incr)
-      }, 10)
-    } else {
-      el.html(max)
+          realIncrementor(el, min, max, incr)
+        }, 10)
+      } else {
+        el.html(max)
+      }
     }
+
+    requestAnimationFrame(realIncrementor)
   }
 })(jQuery)
