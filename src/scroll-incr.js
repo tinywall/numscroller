@@ -126,9 +126,9 @@
         max        = getAttrAsNumberOrDefault(el, 'data-max', 4),
         duration   = getAttrAsNumberOrDefault(el, 'data-duration', 4),
         numdiff    = max - min,
-        steps      = getAttrAsNumberOrDefault(el, 'data-steps', (numdiff / duration)),
+        steps      = getAttrAsNumberOrDefault(el, 'data-steps', 1),
         durationMs = duration * 1000,
-        timeout    = durationMs / 5
+        timeout    = durationMs / numdiff
 
     realIncrementor(el, min, max, steps, timeout)
   }
