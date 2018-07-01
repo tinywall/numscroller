@@ -127,24 +127,20 @@
         duration   = getAttrAsNumberOrDefault(el, 'data-duration', 4),
         numdiff    = (max - min),
         durationMs = (duration * 1000),
-        steps      = getAttrAsNumberOrDefault(el, 'data-steps', 1),
-        timeout    = (durationMs / numdiff)
+        steps      = getAttrAsNumberOrDefault(el, 'data-steps', (numdiff / (duration * 100)))
 
-        //console.log(durationMs, timeout, steps)
-
-    realIncrementor(el, min, max, steps, timeout)
+    realIncrementor(el, min, max, steps)
   }
-var d = 0
-  function realIncrementor(el, min, max, steps, timeout) {
-    console.log(steps, min, d += timeout)
+
+  function realIncrementor(el, min, max, steps) {
     if (min <= max) {
       el.html(min)
 
       setTimeout(function () {
         min += parseInt(steps)
 
-        realIncrementor(el, min, max, steps, timeout)
-      }, timeout)
+        realIncrementor(el, min, max, steps)
+      }, 10)
     } else {
       el.html(max)
     }
