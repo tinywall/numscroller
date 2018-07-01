@@ -127,19 +127,19 @@
         duration   = getAttrAsNumberOrDefault(el, 'data-duration', 4),
         numdiff    = (max - min),
         durationMs = (duration * 1000),
-        steps      = getAttrAsNumberOrDefault(el, 'data-steps', (numdiff / (duration * 100)))
+        incr       = getAttrAsNumberOrDefault(el, 'data-incr', (numdiff / (duration * 100)))
 
-    realIncrementor(el, min, max, steps)
+    realIncrementor(el, min, max, incr)
   }
 
-  function realIncrementor(el, min, max, steps) {
+  function realIncrementor(el, min, max, incr) {
     if (min <= max) {
       el.html(min)
 
       setTimeout(function () {
-        min += parseInt(steps)
+        min += parseInt(incr)
 
-        realIncrementor(el, min, max, steps)
+        realIncrementor(el, min, max, incr)
       }, 10)
     } else {
       el.html(max)
