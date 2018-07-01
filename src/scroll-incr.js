@@ -131,12 +131,12 @@
 
     function realIncrementor() {
       if (min <= max) {
-        el.html(min)
+        el.html(parseInt(min))
 
         setTimeout(function () {
-          min += parseInt(incr) + ((max > 10) ? 1 : 0)
+          min += incr + ((max > 10) ? 1 : 0)
 
-          realIncrementor(el, min, max, incr)
+          requestAnimationFrame(realIncrementor)
         }, 10)
       } else {
         el.html(max)
