@@ -7,8 +7,10 @@
 * Copyright (c) 2014 
 */
 (function($){
-    $(window).on("load",function(){
+    $(document).ready(function(){
         $(document).scrollzipInit();
+    });
+    $(window).on("load",function(){
         $(document).rollerInit();
     });
     $(window).on("load scroll resize", function(){
