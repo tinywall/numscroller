@@ -7,11 +7,9 @@
 * Copyright (c) 2014 
 */
 (function($){
-    $(window).on("load",function(){
-        $(document).scrollzipInit();
+    $(document).ready(function(){
+        $('body').prepend("<div style='position:fixed;top:0px;left:0px;width:0;height:0;' id='scrollzipPoint'></div>" );
         $(document).rollerInit();
-    });
-    $(window).on("load scroll resize", function(){
         $('.numscroller').scrollzip({
             showFunction    :   function() {
                                     numberRoller($(this).attr('data-slno'));
@@ -19,9 +17,14 @@
             wholeVisible    :     false,
         });
     });
-    $.fn.scrollzipInit=function(){
-        $('body').prepend("<div style='position:fixed;top:0px;left:0px;width:0;height:0;' id='scrollzipPoint'></div>" );
-    };
+    $(document).on("scroll resize", function(){
+        $('.numscroller').scrollzip({
+            showFunction    :   function() {
+                                    numberRoller($(this).attr('data-slno'));
+                                },
+            wholeVisible    :     false,
+        });
+    });
     $.fn.rollerInit=function(){
         var i=0;
         $('.numscroller').each(function() {
@@ -64,10 +67,10 @@
         });
     };
     function numberRoller(slno){
-            var min=$('.roller-title-number-'+slno).attr('data-min');
-            var max=$('.roller-title-number-'+slno).attr('data-max');
-            var timediff=$('.roller-title-number-'+slno).attr('data-delay');
-            var increment=$('.roller-title-number-'+slno).attr('data-increment');
+            var min=parseInt($('.roller-title-number-'+slno).attr('data-min'));
+            var max=parseInt($('.roller-title-number-'+slno).attr('data-max'));
+            var timediff=parseInt($('.roller-title-number-'+slno).attr('data-delay'));
+            var increment=parseInt($('.roller-title-number-'+slno).attr('data-increment'));
             var numdiff=max-min;
             var timeout=(timediff*1000)/numdiff;
             //if(numinc<10){
