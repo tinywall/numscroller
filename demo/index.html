@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="jQuery plugin for number increment animation when an element becomes visibile on the viewport while scrolling">
+  <meta name="keywords" content="jquery, increment, plugin, scroll">
+  <meta name="author" content="Eleandro Duzentos">
+
+  <link rel="stylesheet" href="../demo/css/main.css">
+  <link rel="stylesheet" href="../demo/vendor/prism/prism.css">
+
+  <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+<body>
+  <header class="main__header">
+    <div class="container">
+      <h1 class="main__header__title">Scroll-Incr</h1>
+      <h2 class="main__header__subtitle">jQuery plugin for number increment animation when an element becomes visibile.</h2>
+
+      <div class="main__header__btn__wrapper">
+        <a href="https://twitter.com/iam_e200?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @iam_e200</a>
+        <iframe src="https://ghbtns.com/github-btn.html?user=e200&repo=scroll-incr&type=star&count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
+      </div>
+
+      <a class="fork-link" href="https://github.com/e200/scroll-incr">
+        <img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+      </a>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="container">
+      <div class="box">
+        <header class="header">
+          <h2 class="header__title">Intro</h2>
+
+          <p class="header__subtitle">jQuery plugin for number increment animation when an element becomes visibile on the viewport while scrolling.</p>
+        </header>
+      </div>
+    </div>
+  </section>
+
+  <section class="usage">
+    <div class="container">
+      <div class="box">
+        <header class="header">
+          <h2 class="header__title">Usage</h2>
+
+          <p class="header__subtitle">
+            <a href="https://raw.githubusercontent.com/e200/scroll-incr/gh-pages/dist/scroll-incr.min.js">Download</a> or install via npm.
+          </p>
+        </header>
+
+        <pre><code class="language-bash">npm i scroll-incr --save</code></pre>
+
+        <p>Now, in the HTML:</p>
+
+        <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+...
+&lt;script src="/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/scroll-incr.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="scroll-incr" data-max="10"&gt;&lt;/div&gt;
+&lt;div class="scroll-incr" data-max="1000" data-increment="10"&gt;&lt;/div&gt;
+&lt;div class="scroll-incr" data-max="599" data-duration="8"&gt;&lt;/div&gt;
+&lt;div class="scroll-incr" data-min="100" data-max="10000"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <p>Make sure to include the <a href="https://jquery.com">jQuery</a> library before include <a href="https://github.com/e200/scroll-incr">Scroll-Incr</a> plugin.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="example">
+    <div class="container">
+      <header class="header">
+        <h2 class="header__title">Example</h2>
+      </header>
+    </div>
+
+    <div class="container">
+      <pre><code class="language-markup">&lt;div class="box"&gt;
+  &lt;p&gt;Charles Babbage designs his first mechanical computer in&lt;/p&gt;
+  &lt;div class="scroll-incr" data-max="4"&gt;4&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="box"&gt;
+  &lt;p&gt;Tim Berners-Lee at CERN releases first website in&lt;/p&gt;
+  &lt;div class="scroll-incr" data-max="1991"&gt;1991&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="box"&gt;
+  &lt;p&gt;Total no. websites as of 2014&lt;/p&gt;
+  &lt;div class="scroll-incr" data-max="1185000000"&gt;1185000000&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="box"&gt;
+  &lt;p&gt;Nº of internet users world wide as of 2014&lt;/p&gt;
+  &lt;div class="scroll-incr" data-max="2923000000"&gt;2923000000&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="box"&gt;
+  &lt;p&gt;Nº blood vessels in human body&lt;/p&gt;
+  &lt;div class="scroll-incr" data-max="62000" data-duration="3"&gt;62000&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="box"&gt;
+  &lt;p&gt;Nº of heart beats for one day&lt;/p&gt;
+  &lt;div class="scroll-incr" data-max="10000" data-duration="5"&gt;10000&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="box__wrapper">
+          <div class="box">
+            <p>Charles Babbage designs his first mechanical computer in</p>
+
+            <div class="scroll-incr" data-max="4">4</div>
+          </div>
+        </div>
+
+        <div class="box__wrapper">
+          <div class="box">
+            <p>Tim Berners-Lee at CERN releases first website in</p>
+
+            <div class="scroll-incr" data-max="1991">1991</div>
+          </div>
+        </div>
+
+        <div class="box__wrapper">
+          <div class="box">
+            <p>Total nº websites as of 2014</p>
+
+            <div class="scroll-incr" data-max="1185000000">1185000000</div>
+          </div>
+        </div>
+
+        <div class="box__wrapper">
+          <div class="box">
+            <p>Nº of internet users world wide as of 2014</p>
+
+            <div class="scroll-incr" data-max="2923000000">2923000000</div>
+          </div>
+        </div>
+
+        <div class="box__wrapper">
+          <div class="box">
+            <p>Nº blood vessels in human body</p>
+
+            <div class="scroll-incr" data-max="62000" data-duration="3">62000</div>
+          </div>
+        </div>
+
+        <div class="box__wrapper">
+          <div class="box">
+            <p>Nº of heart beats for one day</p>
+
+            <div class="scroll-incr" data-max="10000" data-duration="5">10000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="options">
+    <div class="container">
+      <div class="box">
+        <header class="header">
+          <h2 class="header__title">Options</h2>
+
+          <p class="header__subtitle"><b>Scroll-Incr</b> provides 4 options:</p>
+        </header>
+
+        <div class="options__table__wrapper">
+          <table class="options__table">
+            <thead class="options__table__header">
+              <tr>
+                <th>Property</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class="options__table__body">
+              <tr>
+                <td>data-min</td>
+                <td>Start number for incrementing</td>
+              </tr>
+              <tr>
+                <td>data-max</td>
+                <td>End number for incrementing</td>
+              </tr>
+              <tr>
+                <td>data-incr</td>
+                <td>Increment by value for each rolling</td>
+              </tr>
+              <tr>
+                <td>data-duration</td>
+                <td>Total seconds to complete the number increment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      Copyright <span class="copyright-year">2018</span> &copy; <a class="footer__link" href="https://e200.github.io">Eleandro Duzentos</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../demo/vendor/prism/prism.js"></script>
+  <script src="../src/scroll-incr.js"></script>
+  <script>$(function() { $('.copyright-year').html(new Date().getFullYear()) })</script>
+</body>
+
+</html>

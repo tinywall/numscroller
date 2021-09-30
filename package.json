@@ -1,0 +1,41 @@
+{
+  "name": "scroll-incr",
+  "version": "2.0.3",
+  "description": "jQuery plugin for number increment animation when an element becomes visibile on the viewport while scrolling",
+  "main": "src/scroll-incr.js",
+  "scripts": {
+    "start": "ws -s demo/index.html",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e200/scroll-incr.git"
+  },
+  "keywords": [
+    "jquery",
+    "increment",
+    "plugin",
+    "scroll"
+  ],
+  "author": {
+    "name": "Eleandro Duzentos",
+    "email": "eleandro@inbox.ru",
+    "url": "https://e200.github.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/e200/scroll-incr/issues"
+  },
+  "homepage": "https://github.com/e200/scroll-incr#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-purgecss": "^1.0.0",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "local-web-server": "^2.5.4"
+  },
+  "dependencies": {}
+}
